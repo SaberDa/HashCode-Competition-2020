@@ -5,12 +5,11 @@
 
 using namespace std;
 
-vector<int> choosePizza(int maxSlides, vector<int>& sortSlides) {
+vector<int> choosePizza(int maxSlides, vector<int>& sortSlides, vector<int>& res) {
 
     // greedy
     // keep maxSlides always >= 0
     // if element in sortSlides is visited, we mark it as -1
-    vector<int> res;
     for (int i = 0; i < sortSlides.size(); i++) {
         if (maxSlides - sortSlides[i] >= 0 && sortSlides[i] != -1) {
             maxSlides -= sortSlides[i];
@@ -53,7 +52,7 @@ int main() {
 
     // use the greedy algorithm, choose the largest scale 
     vector<int> res;
-    res = choosePizza(maxSlides, sortSlides);
+    res = choosePizza(maxSlides, sortSlides, res);
 
     // find the chosen pizza index in origin slides
     sort(res.begin(), res.end());
