@@ -25,27 +25,27 @@ vector<int> choosePizza(int maxSlides, vector<int>& sortSlides) {
 int main() {
 
     // read and write from files
-    // freopen("input", "r", stdin);
-    // freopen("output", "w", stdout);
-    // int maxSlides = 0;
-    // int pizzaTypes = 0;
-    // vector<int> originSlides;
-    // cin >> maxSlides >> pizzaTypes;
-    // for (int i = 0; i < pizzaTypes; i++) {
-    //     int size;
-    //     cin >> size;
-    //     originSlides.push_back(size);
-    // }
+    freopen("input", "r", stdin);
+    freopen("output", "w", stdout);
+    int maxSlides = 0;
+    int pizzaTypes = 0;
+    vector<int> originSlides;
+    cin >> maxSlides >> pizzaTypes;
+    for (int i = 0; i < pizzaTypes; i++) {
+        int size;
+        cin >> size;
+        originSlides.push_back(size);
+    }
 
 
     // init
-    int maxSlides = 17;
-    int pizzaTypes = 4;
-    vector<int> originSlides;
-    originSlides.push_back(2);
-    originSlides.push_back(5);
-    originSlides.push_back(6);
-    originSlides.push_back(8);
+    // int maxSlides = 17;
+    // int pizzaTypes = 4;
+    // vector<int> originSlides;
+    // originSlides.push_back(2);
+    // originSlides.push_back(5);
+    // originSlides.push_back(6);
+    // originSlides.push_back(8);
 
     // sort the origin slides from big to small
     vector<int> sortSlides(originSlides);
