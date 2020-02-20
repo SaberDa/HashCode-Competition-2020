@@ -89,13 +89,13 @@ int main() {
 
     int sum_days = 0;
 
-    while (sum_days <= n_days) {
+    while (0 <= n_days) {
         for (auto l : libraries) {
             output_v o;
             o.id = l.id;
+            n_days -= l.signup_time;
             o.n_books = l.n_books;
             o.b_ids = l.books;
-            sum_days += l.signup_time;
             output.push_back(o);
         }
     }
