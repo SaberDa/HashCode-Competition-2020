@@ -47,7 +47,6 @@ bool compare(unsigned long long a, unsigned long long b) {
 
 // unsigned long long library_score(unsigned long long a, unsigned long long b,
 //                                  unsigned long long c, int d, int e) {
-//   return (a - b) * c * (d + e);
 // }
 
 int main() {
