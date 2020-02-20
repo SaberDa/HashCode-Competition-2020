@@ -32,26 +32,6 @@ struct Library {
 
 vector<Library> libs;
 
-void solutionB() {
-    vector<pair<unsigned long long, unsigned long long>> libs_todo_index(libs.size());
-    for (unsigned long long i = 0; i < libs.size(); i++) {
-        libs_todo_index[i].first = libs[i].signup_time;
-        libs_todo_index[i].second = i;
-    }
-    sort(libs_todo_index.begin(), libs_todo_index.end());
-    unordered_set<unsigned long long> add_books;
-    for (unsigned long long i = 0; i < libs_todo_index.size(); i++) {
-        Library& lib = libs[libs_todo_index[i].second];
-        for (auto book : lib.lib_books) {
-            if (!add_books.count(book) && lib.canScan()) {
-                lib.to_scan.push_back(book);
-                add_books.insert(book);
-            }
-        }
-        libraries.push_back(libs_todo_index[i].second);
-    }
-}
-
 void solve() {
     vector<pair<unsigned long long, unsigned long long>> book_score_todo_index(books.size());
     for (unsigned long long i = 0; i < books.size(); i++) {
@@ -159,9 +139,9 @@ void writeOutput(ostream& output) {
 vector<string> inputFiles = {"a", "b", "c", "d", "e", "f"};
 
 int main() {
-    int input_solve = 7;
-    const string& file = input_files[6];
-    ifstream input("input/" + file + ".in");
+    freopen("b_read_on.txt", "r", stdin);
+    freopen("b_output", "w", stdout);
+    ifstream input("database/b_read_on.txt");
     ofstream output("output/" + file + ".out");
 
     // ifstream input("input/f.in");

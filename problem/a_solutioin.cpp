@@ -33,7 +33,7 @@ bool compare(unsigned long long a, unsigned long long b) {
 
 unsigned long long library_score(unsigned long long a, unsigned long long b,
                                  unsigned long long c, int d, int e) {
-  return (a - b) * c * (d + e);
+  return 0;
 }
 
 bool compare_lib(library_t &l1, library_t &l2) { return l1.score > l2.score; }

@@ -24,7 +24,7 @@ vector<int> choosePizza(int maxSlides, vector<int>& sortSlides, vector<int>& res
 int main() {
 
     // read and write from files
-    freopen("input", "r", stdin);
+    freopen("d_quite_big.in", "r", stdin);
     freopen("output", "w", stdout);
     int maxSlides = 0;
     int pizzaTypes = 0;
