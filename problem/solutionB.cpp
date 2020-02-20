@@ -14,13 +14,13 @@ struct library_t {
   vector<int> books;
 };
 
-struct output {
+struct output_v {
     unsigned long long id;
     unsigned long long n_books;
     vector<int> b_ids;
 };
 
-void write_output(vector<output> &v) {
+void write_output(vector<output_v> &v) {
   cout << v.size() << endl;
   for (auto l : v) {
     cout << l.id << " " << l.n_books << endl;
@@ -45,9 +45,12 @@ bool compare(unsigned long long a, unsigned long long b) {
   return false;
 }
 
-// unsigned long long library_score(unsigned long long a, unsigned long long b,
-//                                  unsigned long long c, int d, int e) {
-// }
+unsigned long long library_score(unsigned long long a, unsigned long long b,
+                                 unsigned long long c, int d, int e) {
+    return 0;
+}
+
+bool compare_lib(library_t &l1, library_t &l2) { return l1.signup_time < l2.signup_time; }
 
 int main() {
 
@@ -75,11 +78,30 @@ int main() {
         }
         sort(aux5.begin(), aux5.end(), compare);
 
-        // libraries.push_back({
-        //     i, aux, signup, ships,
-        //     library_score(n_days, signup, ships, book_value[aux5[0]], book_value[aux5.back()]), aux5});
+        libraries.push_back({
+            i, aux, signup, ships,
+            library_score(n_days, signup, ships, book_value[aux5[0]], book_value[aux5.back()]), aux5});
     }
 
+    sort(libraries.begin(), libraries.end(), compare_lib);
+    
+    vector<output_v> output;
+
+    int sum_days = 0;
+
+    while (sum_days <= n_days) {
+        for (auto l : libraries) {
+            output_v o;
+            o.id = l.id;
+            o.n_books = l.n_books;
+            o.b_ids = l.books;
+            sum_days += l.signup_time;
+            output.push_back(o);
+        }
+    }
+
+
+    write_output(output);
    
 
 
